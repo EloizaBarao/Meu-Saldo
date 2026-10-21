@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeuSaldo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h1>Meu Saldo</h1>
+
+       <!-- Resumo -->
+        <section>
+            <div>
+                <span>Saldo</span>
+                <strong id="saldo">R$0,00</strong>
+            </div>
+             <div>
+                <span>Entrada</span>
+                <strong id="entradas">R$0,00</strong>
+            </div>
+             <div>
+                <span>Saídas</span>
+                <strong id="saidas">R$0,00</strong>
+            </div>
+        </section> 
+         <!-- Formulário -->
+        <form id="form">
+            <label>Descrição
+            <input type="text" id="descricao" placeholder="Ex: Mercado" required>
+            </label>
+            <label>Valor (R$)
+            <input type="number" id="valor" stpe="any" required>
+            </label>
+            <label>Tipo
+            <select id="tipo">
+            <option value="saida">Saida</option>
+            <option value="entrada">Entrada</option>
+            </select>
+            </label>
+            <button type="submit">Adicionar</button>
+        </form>
+         <!-- Lista -->
+          <h2>Histórico</h2>
+          <ul id="lista"></ul>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

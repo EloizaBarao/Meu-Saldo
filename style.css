@@ -1,0 +1,219 @@
+:root {
+  --roxo: #3b2a86;
+  --roxo-escuro: #2a1d63;
+  --fundo: #f2f3f8;
+  --texto: #1f2233;
+  --suave: #7b7f95;
+  --linha: #e4e6ef;
+  --entrada: #1f8a5f;
+  --saida: #c2412d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #dcdeea;
+  color: var(--texto);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.4;
+}
+
+/* ===== A "TELA DO CELULAR" ===== */
+main {
+  max-width: 420px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--fundo);
+  overflow: hidden;
+}
+
+@media (min-width: 460px) {
+  main {
+    margin: 2rem auto;
+    min-height: auto;
+    border-radius: 28px;
+    box-shadow: 0 12px 40px rgba(30, 20, 80, 0.25);
+  }
+}
+
+/* ===== TOPO COLORIDO ===== */
+h1 {
+  margin: 0;
+  padding: 1.5rem 1.25rem 0.5rem;
+  background: var(--roxo);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  padding: 0 1.25rem 4rem;
+  background: var(--roxo);
+  color: #ffffff;
+}
+
+section div {
+  padding: 0.7rem 0.9rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+section span {
+  display: block;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+section strong {
+  font-size: 1.05rem;
+}
+
+/* O saldo: grande, sem caixa, ocupa a linha toda */
+section div:first-child {
+  grid-column: 1 / -1;
+  padding: 0.25rem 0 0.75rem;
+  background: none;
+}
+
+section div:first-child strong {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+#entradas {
+  color: #8ef0c0;
+}
+
+#saidas {
+  color: #ffb8ac;
+}
+
+/* ===== FORMULÁRIO: cartão que "flutua" sobre o topo ===== */
+form {
+  margin: -2.5rem 1rem 0;
+  padding: 1.25rem;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(40, 30, 100, 0.12);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.9rem;
+  font-size: 0.8rem;
+  color: var(--suave);
+}
+
+input,
+select {
+  display: block;
+  width: 100%;
+  margin-top: 0.3rem;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--linha);
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--texto);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid var(--roxo);
+  outline-offset: 1px;
+}
+
+form button {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 12px;
+  background: var(--roxo);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: var(--roxo-escuro);
+}
+
+/* ===== LISTA (EXTRATO) ===== */
+h2 {
+  margin: 1.5rem 1.25rem 0.5rem;
+  font-size: 1rem;
+}
+
+ul {
+  margin: 0;
+  padding: 0 1rem 1.5rem;
+  list-style: none;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 0.25rem;
+  border-bottom: 1px solid var(--linha);
+}
+
+/* Bolinha com seta, desenhada só pelo CSS */
+li::before {
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+li.entrada::before {
+  content: "↑";
+  background: #dff5ea;
+  color: var(--entrada);
+}
+
+li.saida::before {
+  content: "↓";
+  background: #fde7e3;
+  color: var(--saida);
+}
+
+li .nome {
+  flex: 1;
+}
+
+li .valor {
+  font-weight: 600;
+}
+
+li.entrada .valor {
+  color: var(--entrada);
+}
+
+li.saida .valor {
+  color: var(--saida);
+}
+
+li button {
+  padding: 0.2rem 0.5rem;
+  border: none;
+  background: none;
+  color: var(--suave);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+li button:hover {
+  color: var(--saida);
+}
